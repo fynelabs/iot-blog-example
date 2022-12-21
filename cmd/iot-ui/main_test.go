@@ -9,11 +9,11 @@ import (
 )
 
 func TestStringsFromSensors(t *testing.T) {
-	sensors, err := gosensors.NewFromFile("sensors.out")
+	sensors, err := gosensors.NewFromFile("sensors.output")
 	assert.NoError(t, err)
 	assert.NotEmpty(t, sensors.String())
 
-	sensors2, err := gosensors.NewFromFile("sensors2.out")
+	sensors2, err := gosensors.NewFromFile("sensors2.output")
 	assert.NoError(t, err)
 	assert.NotEmpty(t, sensors.String())
 
