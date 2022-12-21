@@ -4,6 +4,8 @@ go 1.17
 
 require (
 	fyne.io/fyne/v2 v2.2.4
+	github.com/fynelabs/fyneselfupdate v0.1.0
+	github.com/fynelabs/selfupdate v0.1.0
 	github.com/grandcat/zeroconf v1.0.0
 	github.com/ssimunic/gosensors v0.0.0-20170414000417-e7ab9a4e799b
 	golang.org/x/sync v0.1.0
