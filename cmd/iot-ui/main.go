@@ -142,8 +142,22 @@ func main() {
 
 	w.SetContent(container.NewBorder(hello, nil, nil, nil, list))
 
-	if _, ok := a.(desktop.App); ok {
+	if desk, ok := a.(desktop.App); ok {
 		selfManage(a, w)
+
+		h := fyne.NewMenuItem("Hide", func() {})
+		menu := fyne.NewMenu("Hello World", h)
+		h.Action = func() {
+			if h.Label == "Hide" {
+				w.Hide()
+				h.Label = "Show"
+			} else {
+				w.Show()
+				h.Label = "Hide"
+			}
+			menu.Refresh()
+		}
+		desk.SetSystemTrayMenu(menu)
 	}
 
 	w.ShowAndRun()
