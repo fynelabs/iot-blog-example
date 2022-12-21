@@ -1,0 +1,6 @@
+[Details]
+  Name = "IoT UI"
+  Icon = "Icon.png"
+  ID = "com.fynelabs.iot.blog-ui"
+  Version = "0.1"
+  Build = 1

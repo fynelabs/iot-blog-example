@@ -1,0 +1,38 @@
+<html>
+    <script>
+        f = function() {
+            var e = document.getElementById("value");
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    sensors = JSON.parse(xhr.responseText);
+
+                    orderedValues = []
+                    for (const chipName in sensors['chips']) {
+                        for (const sensorName in sensors['chips'][chipName]) {
+                            orderedValues.push(chipName+"/"+sensorName+": "+sensors['chips'][chipName][sensorName]);
+                        }
+                    }
+                    orderedValues.sort();
+
+                    output = "";
+                    for (var i = 0; i < orderedValues.length; i++) {
+                        output += orderedValues[i] + "<br>";
+                    }
+                    e.innerHTML = output;
+                }
+            }
+            xhr.open("GET", "/api", true);
+            try {
+                xhr.send();
+            } catch (err) {
+            }
+        }        
+        setInterval(f, 1000);
+      </script>
+
+    <body onload="f()">
+        <H1>Sensors values</H1>
+        <div id="value"></div>
+    </body>
+</html>
